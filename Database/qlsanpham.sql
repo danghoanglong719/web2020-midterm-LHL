@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2020 at 03:22 AM
+-- Generation Time: Jul 04, 2020 at 04:05 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -34,46 +34,6 @@ CREATE TABLE `chitiethoadon` (
   `SoLuong` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `hanghoa`
---
-
-CREATE TABLE `hanghoa` (
-  `MaHH` int(11) NOT NULL,
-  `MaLoai` int(11) NOT NULL,
-  `TenHH` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `DonGia` int(11) NOT NULL,
-  `Hinh` varchar(50) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `hoadon`
---
-
-CREATE TABLE `hoadon` (
-  `MaHD` int(11) NOT NULL,
-  `NgayLapHD` date NOT NULL,
-  `MaKH` int(11) NOT NULL,
-  `TongTien` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `khachhang`
---
-
-CREATE TABLE `khachhang` (
-  `MaKH` int(11) NOT NULL,
-  `HoTen` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `DienThoai` int(11) NOT NULL,
-  `Email` varchar(30) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 --
 -- Indexes for dumped tables
 --
@@ -87,26 +47,6 @@ ALTER TABLE `chitiethoadon`
   ADD KEY `fk_chitiethoadon_mahh` (`MaHH`) USING BTREE;
 
 --
--- Indexes for table `hanghoa`
---
-ALTER TABLE `hanghoa`
-  ADD PRIMARY KEY (`MaHH`),
-  ADD KEY `fk_hanghoa_maloai` (`MaLoai`) USING BTREE;
-
---
--- Indexes for table `hoadon`
---
-ALTER TABLE `hoadon`
-  ADD PRIMARY KEY (`MaHD`),
-  ADD KEY `fk_hoadon_makh` (`MaKH`) USING BTREE;
-
---
--- Indexes for table `khachhang`
---
-ALTER TABLE `khachhang`
-  ADD PRIMARY KEY (`MaKH`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -117,24 +57,6 @@ ALTER TABLE `chitiethoadon`
   MODIFY `MaCTHD` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `hanghoa`
---
-ALTER TABLE `hanghoa`
-  MODIFY `MaHH` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `hoadon`
---
-ALTER TABLE `hoadon`
-  MODIFY `MaHD` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `khachhang`
---
-ALTER TABLE `khachhang`
-  MODIFY `MaKH` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- Constraints for dumped tables
 --
 
@@ -142,20 +64,8 @@ ALTER TABLE `khachhang`
 -- Constraints for table `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
-  ADD CONSTRAINT `fk_chitiethoadon_mahd` FOREIGN KEY (`MaHD`) REFERENCES `hoadon` (`MaHD`),
-  ADD CONSTRAINT `fk_chitiethoadon_mahh` FOREIGN KEY (`MaHH`) REFERENCES `hanghoa` (`MaHH`);
-
---
--- Constraints for table `hanghoa`
---
-ALTER TABLE `hanghoa`
-  ADD CONSTRAINT `fk_hanghoa_maloai` FOREIGN KEY (`MaLoai`) REFERENCES `loai` (`MaLoai`);
-
---
--- Constraints for table `hoadon`
---
-ALTER TABLE `hoadon`
-  ADD CONSTRAINT `fk_hoadon_makh` FOREIGN KEY (`MaKH`) REFERENCES `khachhang` (`MaKH`);
+  ADD CONSTRAINT `fk_chitiethoadon_mahd` FOREIGN KEY (`MaHD`) REFERENCES `hoadon` (`MaHD`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_chitiethoadon_mahh` FOREIGN KEY (`MaHH`) REFERENCES `hanghoa` (`MaHH`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
