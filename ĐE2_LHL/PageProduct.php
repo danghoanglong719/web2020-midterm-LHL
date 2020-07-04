@@ -40,7 +40,7 @@
                 <td></td>
                 <td><input type="checkbox" name="check" value=""> </td>
                 <td><input type="number" name="numb" value=""> </td>
-                <td><a href="">Mua</a></td>
+                <td><a href="" name="Mua">Mua</a></td>
             </tr>
     
        
