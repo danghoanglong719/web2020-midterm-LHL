@@ -19,8 +19,8 @@
         }
  </style>   
 <body>
-<h1 class="" style="text-align:center;">Bảng Hóa Đơn</h1>
-<div style="border:1px solid black;width:300px;margin-bottom:30px;">
+            <h1 class="" style="text-align:center;">Bảng Hóa Đơn</h1>
+            <div style="border:1px solid black;width:300px;margin-bottom:30px;">
                 <h5>ToTal :</h5>
                 <span></span>
 

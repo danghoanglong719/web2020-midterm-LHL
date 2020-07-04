@@ -3,32 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="TrangQuanLy.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
     
     <title>Quản Lý</title>
 </head>
-<script type="text/javascript" src="../js/jquery/jquery-3.5.0.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+    .exam1,{
+            margin:50px auto;
+            padding:10px;
+            text-align:center;
+            border:2px solid black;
+        }
+        table, th, td ,a{
+        border: 1px solid black;
+        text-decoration:none;
+        text-align:center;
+        }
+        .img{
+            width:70px;
+            height:70px;
+            border:1px solid black;
+        }
+ </style>   
 <style>
  </style>   
 <body>
+<?php
+        include_once './ketnoi.php';
+        $result = mysqli_query($conn , "SELECT * FROM hanghoa");
+     
+
+    
+        
+     
+?>
+
+
+
         <h1 class="" style="text-align:center;">Bảng Quản Lý</h1>
 
 <div class="exam1">
-    <!-- Tab links -->
-    <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'hanghoa')">HÀNG HÓA</button>
-        <button class="tablinks" onclick="openCity(event, 'loai')">LOẠI</button>
-        <button class="tablinks" onclick="openCity(event, 'khachhang')">KHÁCH HÀNG</button>
-        <button class="tablinks" onclick="openCity(event, 'hoadon')">HÓA ĐƠN</button>
-        <button class="tablinks" onclick="openCity(event, 'chitiethd')">CHI TIẾT HÓA ĐƠN</button>
-    </div>
-
-    <!-- Tab content -->
-    <div id="hanghoa" class="tabcontent">
-        <h3>HÀNG HÓA</h3>
         <table style="width:100%">
             <tr>
                 <th>Mã Sản Phẩm</th>
@@ -39,54 +53,41 @@
                 <th>THÊM</th>
                 <th>XÓA</th>
                 <th>SỬA</th>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th><a href=""> </a></th>
-                <th><a href=""> </a></th>
-                <th><a href=""> </a></th>
-            </tr>
-            <tr></tr>
+            </tr>  
+               
+            <?php
+                 while ($row = mysqli_fetch_array($result)){              
+                    ?>
+                     
+                   
+                         <tr>
+                            <td><?= $row['MaHH'] ?></td>
+                             <td><?=$row['MaLoai']?></td>
+                             <td><?=$row['TenHH']?></td>
+                             <td><?=$row['DonGia']?></td>
+                            <td> <img src="../Hinh/<?=$row['Hinh']?>" class="img"/> </td>                  
+                             <td> <a href="">Thêm</a></td>
+                             <td> <a href="./TrangQuanLy.php?delete=<?=$row['MaHH'] ?>">Xóa</a></td>
+                             <td> <a href="">Sửa</a></td>
+                         </div>
+                <?php } ?>
+    
         </table>
     </div>
+    <?php
 
-    <div id="loai" class="tabcontent">
-        <h3>LOẠI</h3>
-        <p></p>
-    </div>
+if(isset($_GET['delete'])){
+    $product_id = $_GET['delete'];
+    $result = mysqli_query($conn , "DELETE FROM `hanghoa` WHERE MaHH='$product_id'");
+    if($result==true)
+    {
+        echo "thanh cong";
+    }
+    else {
+        echo "that bai";}
+}
+?>
 
-    <div id="khachhang" class="tabcontent">
-        <h3>KHÁCH HÀNG</h3>
-        <p></p>
-    </div>
-    <div id="hoadon" class="tabcontent">
-        <h3>HÓA ĐƠN</h3>
-        <p></p>
-    </div>
-
-    <div id="chitiethd" class="tabcontent">
-        <h3>CHI TIẾT HÓA ĐƠN</h3>
-        <p></p>
-    </div>
 </div>
 </body>
 </html>
-<script>
-function openCity(evt, category) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(category).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-</script>
