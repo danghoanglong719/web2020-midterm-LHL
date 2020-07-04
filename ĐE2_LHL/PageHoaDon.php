@@ -20,7 +20,19 @@
  </style>   
 <body>
 <h1 class="" style="text-align:center;">Bảng Hóa Đơn</h1>
+<div style="border:1px solid black;width:300px;margin-bottom:30px;">
+                <h5>ToTal :</h5>
+                <span></span>
 
+            </div>
+            <div style="margin-bottom:30px;">
+            <label for="">Tra Cứu :</label>
+                <form action="" method="post">
+                <input type="text" placeholder="Search.." name="search">
+                <input type="submit" name="submit" value="Tìm Kiếm">
+                </form>
+
+            </div>
 <div class="exam1">
         <table style="width:100%">
             <tr>
@@ -42,12 +54,10 @@
                 <td>6</td>
             </tr>
           
-            <div style="border:1px solid black;width:300px;margin-bottom:30px;">
-                <h5>ToTal :</h5>
-                <span></span>
-            <div>
+          
        
         </table>  
     </div>
+   
 </body>
 </html>
