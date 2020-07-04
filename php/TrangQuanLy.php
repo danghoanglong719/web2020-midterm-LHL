@@ -53,6 +53,7 @@
                 <th>THÊM</th>
                 <th>XÓA</th>
                 <th>SỬA</th>
+                <th>Mua</th>
             </tr>  
                
             <?php
@@ -69,6 +70,7 @@
                              <td> <a href="">Thêm</a></td>
                              <td> <a href="./TrangQuanLy.php?delete=<?=$row['MaHH'] ?>">Xóa</a></td>
                              <td> <a href="./TrangQuanLy.php?edit=<?=$row['MaHH'] ?>">Sửa</a></td>
+                             <td> <a href="./PageHoaDon.php?HoaDon=<?=$row['MaHH'] ?>">Mua</a></td>
                          </div>
                 <?php } ?>
     
@@ -111,7 +113,8 @@ if(isset($_POST['sub']) && isset($_GET['edit']))
 
 
 ?>
-<div>
+<div style="float:left;">
+Sửa:
         <form action="" method="POST" style="margin-top:20px;">
         <label for="">MaLoai</label>
         <input type="text" name="Ma" value=""required>
@@ -123,12 +126,50 @@ if(isset($_POST['sub']) && isset($_GET['edit']))
         <input type="text" name="price" value=""required>
         <br>
         <label for="">HinhAnh</label>
-        <input type="text" name="img" value="">
+        <input type="file" name="img" value="">
         <br>
         <input type="submit" name="sub">
 
 </form>
 </div>
+<div style="float:right;">
+Thêm
+        <form action="" method="POST" >
+        <label for="">MaLoai</label>
+        <input type="text" name="Ma1" value=""required>
+        <br>
+        <label for="">TênHH</label>
+        <input type="text" name="change1" value=""required>
+        <br>
+        <label for="">ĐơnGia</label>
+        <input type="text" name="price1" value=""required>
+        <br>
+        <label for="">hinh</label>
+        <input type="file" name="img1" value="">
+        <br>
+        
+        <input type="submit" name="sub1">
+
+</form>
+</div>
+<?php
+            if(isset($_POST['sub1']) ){
+                $ma1 = $_POST['Ma1'];
+                $change1 = $_POST['change1'];
+                $price1 = $_POST['price1'];
+                $img1 = $_POST['img1'];
+                $result = mysqli_query($conn , "INSERT INTO hanghoa (MaLoai, TenHH, DonGia,Hinh)VALUES ('$ma1',' $change1 ',' $price1' ,'$img1')");
+                if($result==true)
+                {
+                    echo "thanh cong";
+                    header("location:TrangQuanLy.php");
+                }
+                else {
+                    echo "that bai";}
+            
+        }
+             
+        ?>
 
         
 

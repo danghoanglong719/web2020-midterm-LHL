@@ -19,6 +19,18 @@
         }
  </style>   
 <body>
+
+<?php
+        include_once 'ketnoi.php';
+       // $result = mysqli_query($conn , "SELECT * FROM hanghoa,hoadon WHERE hanghoa.MaHH = hoadon.MaHH");
+       // $result1 = mysqli_query($conn , "SELECT * FROM hoadon");
+        if(isset($_GET['HoaDon']))
+        {  
+            $id = $_GET['HoaDon'];
+            $result = mysqli_query($conn , "SELECT * FROM account11 where MaHD = '$id' ");
+        }
+
+?>
             <h1 class="" style="text-align:center;">Bảng Hóa Đơn</h1>
             <div style="border:1px solid black;width:300px;margin-bottom:30px;">
                 <h5>ToTal :</h5>
@@ -44,17 +56,19 @@
                 <th>Giá Tiền</th>
             </tr>
          
-          
+            <?php
+                 while ($row = mysqli_fetch_array($result)){              
+                    ?>
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
+                             <td><?=$row['MaHD']?></td>
+                            <td><?= $row['MaHH'] ?></td>
+                             <td><?=$row['TenHH']?></td>
+                             <td><?=date('d/m/y H:i ,$row["hh/ H:i"] ')?></td>
+                             <td><?=$row['MaKH']?></td>
+                             <td><?=$row['TongTien']?></td>
             </tr>
           
-          
+          <?php } ?>
        
         </table>  
     </div>
