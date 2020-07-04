@@ -28,7 +28,6 @@
 
     <!-- Tab content -->
     <div id="hanghoa" class="tabcontent">
-        <h3>HÀNG HÓA</h3>
         <table style="width:100%">
             <tr>
                 <th>Mã Sản Phẩm</th>
@@ -55,22 +54,96 @@
     </div>
 
     <div id="loai" class="tabcontent">
-        <h3>LOẠI</h3>
-        <p></p>
+        <table style="width:100%">
+            <tr>
+                <th>Mã Loại</th>
+                <th>Tên Loại</th>
+                <th>Mô tả</th>
+                <th>THÊM</th>
+                <th>XÓA</th>
+                <th>SỬA</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <th><a href=""> </a></th>
+                <th><a href=""> </a></th>
+                <th><a href=""> </a></th>
+            </tr>
+            <tr></tr>
+        </table>
     </div>
 
     <div id="khachhang" class="tabcontent">
-        <h3>KHÁCH HÀNG</h3>
-        <p></p>
+        <table style="width:100%">
+            <tr>
+                <th>Mã KH</th>
+                <th>Họ Tên</th>
+                <th>Điện thoại</th>
+                <th>Email</th>
+                <th>THÊM</th>
+                <th>XÓA</th>
+                <th>SỬA</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <th><a href=""> </a></th>
+                <th><a href=""> </a></th>
+                <th><a href=""> </a></th>
+            </tr>
+            <tr></tr>
+        </table>
     </div>
     <div id="hoadon" class="tabcontent">
-        <h3>HÓA ĐƠN</h3>
-        <p></p>
+        <table style="width:100%">
+            <tr>
+                <th>Mã Hóa Đơn</th>
+                <th>Ngày Lập</th>
+                <th>Mã Khách Hàng</th>
+                <th>Tổng Tiền</th>
+                <th>THÊM</th>
+                <th>XÓA</th>
+                <th>SỬA</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <th><a href=""> </a></th>
+                <th><a href=""> </a></th>
+                <th><a href=""> </a></th>
+            </tr>
+            <tr></tr>
+        </table>
     </div>
 
     <div id="chitiethd" class="tabcontent">
-        <h3>CHI TIẾT HÓA ĐƠN</h3>
-        <p></p>
+        <table style="width:100%">
+            <tr>
+                <th>Mã CTHD</th>
+                <th>Mã Hóa Đơn</th>
+                <th>Mã Hàng Hóa</th>
+                <th>Số Lượng</th>
+                <th>THÊM</th>
+                <th>XÓA</th>
+                <th>SỬA</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <th><a href=""> </a></th>
+                <th><a href=""> </a></th>
+                <th><a href=""> </a></th>
+            </tr>
+            <tr></tr>
+        </table>
     </div>
 </div>
 </body>
